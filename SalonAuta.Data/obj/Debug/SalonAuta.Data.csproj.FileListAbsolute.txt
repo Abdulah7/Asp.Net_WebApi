@@ -1,0 +1,40 @@
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll.config
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.pdb
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.dll
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.xml
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.csprojResolveAssemblyReference.cache
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.dll
+c:\users\home\documents\visual studio 2015\Projects\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.pdb
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll.config
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.pdb
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.dll
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.xml
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.csprojResolveAssemblyReference.cache
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.dll
+C:\_tmp\Salon\Salon\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.pdb
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll.config
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.pdb
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.dll
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.xml
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.csprojResolveAssemblyReference.cache
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.dll
+C:\Users\Home\Downloads\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.pdb
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll.config
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.dll
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\SalonAuta.Data.pdb
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.dll
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.xml
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.dll
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.pdb
+C:\Users\Home\Desktop\SalonAuta.WebApi\SalonAuta.WebApi\SalonAuta.Data\obj\Debug\SalonAuta.Data.csprojResolveAssemblyReference.cache

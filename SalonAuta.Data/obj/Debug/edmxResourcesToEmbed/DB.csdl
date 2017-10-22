@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AutoSalonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dijelovi">
+    <Key>
+      <PropertyRef Name="DioID" />
+    </Key>
+    <Property Name="DioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Zalihe" Type="Int32" Nullable="false" />
+    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Sifra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProizvodjacID" Type="Int32" Nullable="false" />
+    <Property Name="AutaProizvedena" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Proizvodjaci" Relationship="Self.FK__Dijelovi__Proizv__3C69FB99" FromRole="Dijelovi" ToRole="Proizvodjaci" />
+    <NavigationProperty Name="RacuniStavke" Relationship="Self.FK__RacuniSta__Dijel__46E78A0C" FromRole="Dijelovi" ToRole="RacuniStavke" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="KorisnikID" />
+    </Key>
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="LozinkaHash" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SalonID" Type="Int32" />
+    <Property Name="LozinkaSalt" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SalonAuta" Relationship="Self.FK__Korisnici__Salon__3D5E1FD2" FromRole="Korisnici" ToRole="SalonAuta" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK__Racuni__Korisnik__45F365D3" FromRole="Korisnici" ToRole="Racuni" />
+  </EntityType>
+  <EntityType Name="Kupci">
+    <Key>
+      <PropertyRef Name="KupacID" />
+    </Key>
+    <Property Name="KupacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Kvarovi" Relationship="Self.FK__Kvarovi__KupacID__3E52440B" FromRole="Kupci" ToRole="Kvarovi" />
+    <NavigationProperty Name="Notifikacija" Relationship="Self.FK__Notifikac__Kupac__403A8C7D" FromRole="Kupci" ToRole="Notifikacija" />
+    <NavigationProperty Name="Pitanja" Relationship="Self.FK__Pitanja__KupacID__4316F928" FromRole="Kupci" ToRole="Pitanja" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK__Racuni__KupacID__440B1D61" FromRole="Kupci" ToRole="Racuni" />
+    <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Kvarovi">
+    <Key>
+      <PropertyRef Name="KvarID" />
+    </Key>
+    <Property Name="KvarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KupacID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kupci" Relationship="Self.FK__Kvarovi__KupacID__3E52440B" FromRole="Kvarovi" ToRole="Kupci" />
+  </EntityType>
+  <EntityType Name="Modeli">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProizvodjacID" Type="Int32" Nullable="false" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VrstaModela" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Proizvodjaci" Relationship="Self.FK__Modeli__Proizvod__3F466844" FromRole="Modeli" ToRole="Proizvodjaci" />
+    <NavigationProperty Name="Vozila" Relationship="Self.FK__Vozila__ModelID__49C3F6B7" FromRole="Modeli" ToRole="Vozila" />
+  </EntityType>
+  <EntityType Name="NaciniPlacanja">
+    <Key>
+      <PropertyRef Name="PlacanjeID" />
+    </Key>
+    <Property Name="PlacanjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK__Racuni__Placanje__44FF419A" FromRole="NaciniPlacanja" ToRole="Racuni" />
+  </EntityType>
+  <EntityType Name="Notifikacija">
+    <Key>
+      <PropertyRef Name="NotifikacijaID" />
+    </Key>
+    <Property Name="NotifikacijaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naslov" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Vrijeme" Type="DateTime" Precision="3" />
+    <Property Name="KupacID" Type="Int32" />
+    <Property Name="IsRead" Type="Boolean" />
+    <NavigationProperty Name="Kupci" Relationship="Self.FK__Notifikac__Kupac__403A8C7D" FromRole="Notifikacija" ToRole="Kupci" />
+  </EntityType>
+  <EntityType Name="Pitanja">
+    <Key>
+      <PropertyRef Name="PitanjeID" />
+    </Key>
+    <Property Name="PitanjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Opis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KupacID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kupci" Relationship="Self.FK__Pitanja__KupacID__4316F928" FromRole="Pitanja" ToRole="Kupci" />
+  </EntityType>
+  <EntityType Name="Proizvodjaci">
+    <Key>
+      <PropertyRef Name="ProizvodjacID" />
+    </Key>
+    <Property Name="ProizvodjacID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dijelovi" Relationship="Self.FK__Dijelovi__Proizv__3C69FB99" FromRole="Proizvodjaci" ToRole="Dijelovi" />
+    <NavigationProperty Name="Modeli" Relationship="Self.FK__Modeli__Proizvod__3F466844" FromRole="Proizvodjaci" ToRole="Modeli" />
+  </EntityType>
+  <EntityType Name="Racuni">
+    <Key>
+      <PropertyRef Name="RacunID" />
+    </Key>
+    <Property Name="RacunID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" />
+    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Komentar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PDV" Type="Double" Nullable="false" />
+    <Property Name="Ukupno" Type="Double" Nullable="false" />
+    <Property Name="DatumFakture" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DatumIsporuke" Type="DateTime" Precision="3" />
+    <Property Name="NacinIsporuke" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PlacanjeID" Type="Int32" Nullable="false" />
+    <Property Name="KupacID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Racuni__Korisnik__45F365D3" FromRole="Racuni" ToRole="Korisnici" />
+    <NavigationProperty Name="Kupci" Relationship="Self.FK__Racuni__KupacID__440B1D61" FromRole="Racuni" ToRole="Kupci" />
+    <NavigationProperty Name="NaciniPlacanja" Relationship="Self.FK__Racuni__Placanje__44FF419A" FromRole="Racuni" ToRole="NaciniPlacanja" />
+    <NavigationProperty Name="RacuniStavke" Relationship="Self.FK__RacuniSta__Racun__47DBAE45" FromRole="Racuni" ToRole="RacuniStavke" />
+  </EntityType>
+  <EntityType Name="RacuniStavke">
+    <Key>
+      <PropertyRef Name="StavkaID" />
+    </Key>
+    <Property Name="StavkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DijeloviID" Type="Int32" />
+    <Property Name="VoziloID" Type="Int32" />
+    <Property Name="RacunID" Type="Int32" />
+    <Property Name="Kolicina" Type="Int32" Nullable="false" />
+    <Property Name="Popust" Type="Double" />
+    <Property Name="Rabat" Type="Double" />
+    <NavigationProperty Name="Dijelovi" Relationship="Self.FK__RacuniSta__Dijel__46E78A0C" FromRole="RacuniStavke" ToRole="Dijelovi" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK__RacuniSta__Racun__47DBAE45" FromRole="RacuniStavke" ToRole="Racuni" />
+    <NavigationProperty Name="Vozila" Relationship="Self.FK__RacuniSta__Vozil__48CFD27E" FromRole="RacuniStavke" ToRole="Vozila" />
+  </EntityType>
+  <EntityType Name="SalonAuta">
+    <Key>
+      <PropertyRef Name="SalonID" />
+    </Key>
+    <Property Name="SalonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sjedište" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK__Korisnici__Salon__3D5E1FD2" FromRole="SalonAuta" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Vozila">
+    <Key>
+      <PropertyRef Name="VoziloID" />
+    </Key>
+    <Property Name="VoziloID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Godiste" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Boja" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="VrstaMotora" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmisijaCO2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ModelID" Type="Int32" Nullable="false" />
+    <Property Name="SlikaThumg" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Slika" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Oprema" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SnagaMotora" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrojSasije" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZapreminaMotora" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZapreminaGepeka" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Duzina" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Tezina" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Klima" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BrojSjedista" Type="Int32" />
+    <Property Name="Pogon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="BrojVrata" Type="Int32" />
+    <Property Name="OpisSigurnost" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Mijenjac" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Potrosnja" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObrtniMoment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sirina" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Ubrzanje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaksimalnaBrzina" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Kolicina" Type="Int32" />
+    <NavigationProperty Name="Modeli" Relationship="Self.FK__Vozila__ModelID__49C3F6B7" FromRole="Vozila" ToRole="Modeli" />
+    <NavigationProperty Name="RacuniStavke" Relationship="Self.FK__RacuniSta__Vozil__48CFD27E" FromRole="Vozila" ToRole="RacuniStavke" />
+  </EntityType>
+  <Association Name="FK__Dijelovi__Proizv__3C69FB99">
+    <End Role="Proizvodjaci" Type="Self.Proizvodjaci" Multiplicity="1" />
+    <End Role="Dijelovi" Type="Self.Dijelovi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvodjaci">
+        <PropertyRef Name="ProizvodjacID" />
+      </Principal>
+      <Dependent Role="Dijelovi">
+        <PropertyRef Name="ProizvodjacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RacuniSta__Dijel__46E78A0C">
+    <End Role="Dijelovi" Type="Self.Dijelovi" Multiplicity="0..1" />
+    <End Role="RacuniStavke" Type="Self.RacuniStavke" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dijelovi">
+        <PropertyRef Name="DioID" />
+      </Principal>
+      <Dependent Role="RacuniStavke">
+        <PropertyRef Name="DijeloviID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Korisnici__Salon__3D5E1FD2">
+    <End Role="SalonAuta" Type="Self.SalonAuta" Multiplicity="0..1" />
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalonAuta">
+        <PropertyRef Name="SalonID" />
+      </Principal>
+      <Dependent Role="Korisnici">
+        <PropertyRef Name="SalonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Racuni__Korisnik__45F365D3">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Racuni">
+        <PropertyRef Name="KorisnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kvarovi__KupacID__3E52440B">
+    <End Role="Kupci" Type="Self.Kupci" Multiplicity="1" />
+    <End Role="Kvarovi" Type="Self.Kvarovi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupci">
+        <PropertyRef Name="KupacID" />
+      </Principal>
+      <Dependent Role="Kvarovi">
+        <PropertyRef Name="KupacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notifikac__Kupac__403A8C7D">
+    <End Role="Kupci" Type="Self.Kupci" Multiplicity="0..1" />
+    <End Role="Notifikacija" Type="Self.Notifikacija" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupci">
+        <PropertyRef Name="KupacID" />
+      </Principal>
+      <Dependent Role="Notifikacija">
+        <PropertyRef Name="KupacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pitanja__KupacID__4316F928">
+    <End Role="Kupci" Type="Self.Kupci" Multiplicity="1" />
+    <End Role="Pitanja" Type="Self.Pitanja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupci">
+        <PropertyRef Name="KupacID" />
+      </Principal>
+      <Dependent Role="Pitanja">
+        <PropertyRef Name="KupacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Racuni__KupacID__440B1D61">
+    <End Role="Kupci" Type="Self.Kupci" Multiplicity="1" />
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kupci">
+        <PropertyRef Name="KupacID" />
+      </Principal>
+      <Dependent Role="Racuni">
+        <PropertyRef Name="KupacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Modeli__Proizvod__3F466844">
+    <End Role="Proizvodjaci" Type="Self.Proizvodjaci" Multiplicity="1" />
+    <End Role="Modeli" Type="Self.Modeli" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvodjaci">
+        <PropertyRef Name="ProizvodjacID" />
+      </Principal>
+      <Dependent Role="Modeli">
+        <PropertyRef Name="ProizvodjacID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vozila__ModelID__49C3F6B7">
+    <End Role="Modeli" Type="Self.Modeli" Multiplicity="1" />
+    <End Role="Vozila" Type="Self.Vozila" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Modeli">
+        <PropertyRef Name="ModelID" />
+      </Principal>
+      <Dependent Role="Vozila">
+        <PropertyRef Name="ModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Racuni__Placanje__44FF419A">
+    <End Role="NaciniPlacanja" Type="Self.NaciniPlacanja" Multiplicity="1" />
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NaciniPlacanja">
+        <PropertyRef Name="PlacanjeID" />
+      </Principal>
+      <Dependent Role="Racuni">
+        <PropertyRef Name="PlacanjeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RacuniSta__Racun__47DBAE45">
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="0..1" />
+    <End Role="RacuniStavke" Type="Self.RacuniStavke" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Racuni">
+        <PropertyRef Name="RacunID" />
+      </Principal>
+      <Dependent Role="RacuniStavke">
+        <PropertyRef Name="RacunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RacuniSta__Vozil__48CFD27E">
+    <End Role="Vozila" Type="Self.Vozila" Multiplicity="0..1" />
+    <End Role="RacuniStavke" Type="Self.RacuniStavke" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vozila">
+        <PropertyRef Name="VoziloID" />
+      </Principal>
+      <Dependent Role="RacuniStavke">
+        <PropertyRef Name="VoziloID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AutoSalonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dijelovi" EntityType="Self.Dijelovi" />
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+    <EntitySet Name="Kupci" EntityType="Self.Kupci" />
+    <EntitySet Name="Kvarovi" EntityType="Self.Kvarovi" />
+    <EntitySet Name="Modeli" EntityType="Self.Modeli" />
+    <EntitySet Name="NaciniPlacanja" EntityType="Self.NaciniPlacanja" />
+    <EntitySet Name="Notifikacija" EntityType="Self.Notifikacija" />
+    <EntitySet Name="Pitanja" EntityType="Self.Pitanja" />
+    <EntitySet Name="Proizvodjaci" EntityType="Self.Proizvodjaci" />
+    <EntitySet Name="Racuni" EntityType="Self.Racuni" />
+    <EntitySet Name="RacuniStavke" EntityType="Self.RacuniStavke" />
+    <EntitySet Name="SalonAuta" EntityType="Self.SalonAuta" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Vozila" EntityType="Self.Vozila" />
+    <AssociationSet Name="FK__Dijelovi__Proizv__3C69FB99" Association="Self.FK__Dijelovi__Proizv__3C69FB99">
+      <End Role="Proizvodjaci" EntitySet="Proizvodjaci" />
+      <End Role="Dijelovi" EntitySet="Dijelovi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RacuniSta__Dijel__46E78A0C" Association="Self.FK__RacuniSta__Dijel__46E78A0C">
+      <End Role="Dijelovi" EntitySet="Dijelovi" />
+      <End Role="RacuniStavke" EntitySet="RacuniStavke" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Korisnici__Salon__3D5E1FD2" Association="Self.FK__Korisnici__Salon__3D5E1FD2">
+      <End Role="SalonAuta" EntitySet="SalonAuta" />
+      <End Role="Korisnici" EntitySet="Korisnici" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Racuni__Korisnik__45F365D3" Association="Self.FK__Racuni__Korisnik__45F365D3">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Racuni" EntitySet="Racuni" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kvarovi__KupacID__3E52440B" Association="Self.FK__Kvarovi__KupacID__3E52440B">
+      <End Role="Kupci" EntitySet="Kupci" />
+      <End Role="Kvarovi" EntitySet="Kvarovi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notifikac__Kupac__403A8C7D" Association="Self.FK__Notifikac__Kupac__403A8C7D">
+      <End Role="Kupci" EntitySet="Kupci" />
+      <End Role="Notifikacija" EntitySet="Notifikacija" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pitanja__KupacID__4316F928" Association="Self.FK__Pitanja__KupacID__4316F928">
+      <End Role="Kupci" EntitySet="Kupci" />
+      <End Role="Pitanja" EntitySet="Pitanja" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Racuni__KupacID__440B1D61" Association="Self.FK__Racuni__KupacID__440B1D61">
+      <End Role="Kupci" EntitySet="Kupci" />
+      <End Role="Racuni" EntitySet="Racuni" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Modeli__Proizvod__3F466844" Association="Self.FK__Modeli__Proizvod__3F466844">
+      <End Role="Proizvodjaci" EntitySet="Proizvodjaci" />
+      <End Role="Modeli" EntitySet="Modeli" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vozila__ModelID__49C3F6B7" Association="Self.FK__Vozila__ModelID__49C3F6B7">
+      <End Role="Modeli" EntitySet="Modeli" />
+      <End Role="Vozila" EntitySet="Vozila" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Racuni__Placanje__44FF419A" Association="Self.FK__Racuni__Placanje__44FF419A">
+      <End Role="NaciniPlacanja" EntitySet="NaciniPlacanja" />
+      <End Role="Racuni" EntitySet="Racuni" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RacuniSta__Racun__47DBAE45" Association="Self.FK__RacuniSta__Racun__47DBAE45">
+      <End Role="Racuni" EntitySet="Racuni" />
+      <End Role="RacuniStavke" EntitySet="RacuniStavke" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RacuniSta__Vozil__48CFD27E" Association="Self.FK__RacuniSta__Vozil__48CFD27E">
+      <End Role="Vozila" EntitySet="Vozila" />
+      <End Role="RacuniStavke" EntitySet="RacuniStavke" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
